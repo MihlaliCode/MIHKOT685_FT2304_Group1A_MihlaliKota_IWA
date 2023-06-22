@@ -1,8 +1,10 @@
 // johannes.js
 
-var firstname = "Johannes"
-var surname = "Potgieter"
-var role = "Intern"
+const firstname = "Johannes"
+const surname = "Potgieter"
+export const role = "Intern"
 
-var display= firstname + " " + surname + " (" + role + ")"
-document.querySelector('#johannes').innerText = display
+document.addEventListener('DOMContentLoaded', function() {
+    const display = firstname + " " + surname + " (" + role + ")"
+    document.querySelector('#johannes').innerText = display;
+})

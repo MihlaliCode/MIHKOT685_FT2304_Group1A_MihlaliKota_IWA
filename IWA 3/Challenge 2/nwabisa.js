@@ -1,8 +1,10 @@
 // nwabisa.js
 
-var firstname = "Nwabisa"
-var surname = "Gabe"
-var role = "CEO"
+const firstname = "Nwabisa"
+const surname = "Gabe"
+export const role = "CEO"
 
-var display= firstname + " " + surname + " (" + role + ")"
-document.querySelector('#nwabisa').innerText = display
+document.addEventListener('DOMContentLoaded', function() {
+    const display = firstname + " " + surname + " (" + role + ")"
+    document.querySelector('#nwabisa').innerText = display;
+})
