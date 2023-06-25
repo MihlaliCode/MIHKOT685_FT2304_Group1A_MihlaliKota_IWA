@@ -3,10 +3,10 @@ let statusCode = "student";
 let count = 0;
 
 if (date === 2050) {
-  console.log("January", 'New Year’s Day');
-  console.log("March", 'Human Rights Day');
-  console.log("April", 'Family Day');
-  console.log("April", 'Freedom Day');
+  console.log("January", "New Year’s Day");
+  console.log("March", "Human Rights Day");
+  console.log("April", "Family Day");
+  console.log("April", "Freedom Day");
   count += 4;
 
   if (statusCode === "student") {
