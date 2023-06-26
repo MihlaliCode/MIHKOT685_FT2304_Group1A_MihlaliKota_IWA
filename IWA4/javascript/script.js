@@ -1,5 +1,5 @@
 const date = 2050;
-let statusCode = "student";
+let statusCode = "parent";
 let count = 0;
 
 if (date === 2050) {
