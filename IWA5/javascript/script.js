@@ -5,7 +5,7 @@ let NONE_SELECTED = 0;
 let shipping;
 let currency;
 let country = "RSA";
-let customers = "1";
+let customers = 1;
 
 let shoes = 300 * 1;
 let toys = 100 * 5;
@@ -30,7 +30,7 @@ if (
   (shippingItems >= 1000 && country === "RSA") ||
   (shippingItems >= 60 && country === "NAM")
 ) {
-  if (customers === "1") {
+  if (customers === 1) {
     shipping = 0;
   } else {
     console.log(FREE_WARNING);
