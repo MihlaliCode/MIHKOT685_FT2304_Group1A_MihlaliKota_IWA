@@ -20,7 +20,7 @@ const sarah = `${sarahName.trim()} ${sarahSurname} (Owed: R ${Math.abs(
   sarahBalance
 ).toFixed(2)})`;
 const total = "Total amount owed: R ";
-const result = `${leo}       
+const result = `${leo}
 ${sarah}
 ${divider}
   ${total}${owed.toLocaleString("en-ZA")}
