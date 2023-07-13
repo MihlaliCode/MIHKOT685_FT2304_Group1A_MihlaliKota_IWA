@@ -1,6 +1,6 @@
-let state = 'idle';
+let state = "idle";
 let user = null;
-let calculated = '1';
+let calculated = "1";
 
 // Only allowed to change below
 
