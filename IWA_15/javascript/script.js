@@ -1,3 +1,5 @@
+// scripts.js
+
 const data = {
   lists: [
     ["first", [15, 11, 13, 7, 5]],
@@ -8,51 +10,37 @@ const data = {
 
 // Only edit below
 
-const [firstLabel, firstArr] = data.lists[0];
-const [secondLabel, secondArr] = data.lists[1];
-const [thirdLabel, thirdArr] = data.lists[2];
-
 const result = [];
 
 const extractBiggest = () => {
-  const firstLast = firstArr[firstArr.length - 1];
-  const secondLast = secondArr[secondArr.length - 1];
-  const thirdLast = thirdArr[thirdArr.length - 1];
-
-  if (firstLast >= secondLast && firstLast >= thirdLast) {
-    result.push(firstLast);
-    return firstArr.pop();
-  }
-
-  if (secondLast >= firstLast && secondLast >= thirdLast) {
-    result.push(secondLast);
-    return secondArr.pop();
-  }
-
-  if (thirdLast >= firstLast && thirdLast >= secondLast) {
-    result.push(thirdLast);
-    return thirdArr.pop();
-  }
+  const lastItems = data.lists.map(([_, arr]) => arr[arr.length - 1]);
+  const maxIndex = lastItems.reduce(
+    (maxIndex, item, currentIndex, arr) =>
+      item > arr[maxIndex] ? currentIndex : maxIndex,
+    0
+  );
+  const maxItem = lastItems.splice(maxIndex, 1)[0];
+  result.push(maxItem);
 };
 
 // Only edit above
 
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
+extractBiggest();
+extractBiggest();
+extractBiggest();
+extractBiggest();
+extractBiggest();
 
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
+extractBiggest();
+extractBiggest();
+extractBiggest();
+extractBiggest();
+extractBiggest();
 
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
-result.push(extractBiggest());
+extractBiggest();
+extractBiggest();
+extractBiggest();
+extractBiggest();
+extractBiggest();
 
 console.log(result);
