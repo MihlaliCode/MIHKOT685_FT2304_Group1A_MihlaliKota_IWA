@@ -37,8 +37,8 @@ const createData = () => {
   const startDay = current.getDay(); //Returns the day of the week (0-6) for a specified date according to local time
   const daysInMonth = getDaysInMonth(current);
 
-  const weeks = createArray(5); //Gives numerical value to the length of weeks
-  const days = createArray(7); //Gives numerical value to the length of weeks
+  const weeks = createArray(6); //Gives numerical value to the length of weeks
+  const days = createArray(7); //Gives numerical value to the length of days
   const result = [];
 
   for (const weekIndex of weeks) {
@@ -75,21 +75,22 @@ const addCell = (existing, classString, value) => {
 const createHtml = (data) => {
   let result = "";
 
-  for (const { week, day } of data) {
+  for (const { week, days } of data) {
     let inner = "";
     inner = addCell(inner, "table__cell table__cell_sidebar", `Week ${week}`);
 
-    for (const { dayOfWeek, value } of data) {
+    for (const { dayOfWeek, value } of days) {
       const isToday = new Date().getDate() === value;
-      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 7;
       const isAlternate = week % 2 === 0;
 
       let classString = "table__cell";
 
-      if (isToday) classString = `${} table__cell_`;
-      //   if (isWeekend) classString = `${} table__cell_`;
-      //   if (isAlternate) classString = `${} table__cell_`;
-      inner = addCell();
+      if (isToday) classString = `${classString} table__cell_today`;
+      if (isWeekend) classString = `${classString} table__cell_weekend`;
+      if (isAlternate) classString = `${classString} table__cell_alternate`;
+
+      inner = addCell(inner, classString, value);
     }
 
     result = `
@@ -103,10 +104,8 @@ const createHtml = (data) => {
 
 // Only edit above
 
-const current = new Date();
-document.querySelector("[data-title]").innerText = `${
-  MONTHS[current.getMonth()]
-} ${current.getFullYear()}`;
+const current = new Date()
+document.querySelector('[data-title]').innerText = `${MONTHS[current.getMonth()]} ${current.getFullYear()}`
 
-const data = createData();
-document.querySelector("[data-content]").innerHTML = createHtml(data);
+const data = createData()
+document.querySelector('[data-content]').innerHTML = createHtml(data)
