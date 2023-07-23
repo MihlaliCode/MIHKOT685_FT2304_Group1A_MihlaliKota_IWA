@@ -89,8 +89,10 @@ const handleAddSubmit = (event) => {
   if (!title || !table) {
     return;
   }
+
   const newOrder = createOrderData({ title, table, column: "ordered" });
   state.orders[newOrder.id] = newOrder;
+
   const newOrderElement = createOrderHtml(newOrder);
   html.columns.ordered.appendChild(newOrderElement);
   html.add.overlay.close();
